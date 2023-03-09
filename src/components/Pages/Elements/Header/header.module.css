@@ -1,0 +1,56 @@
+@import url('../../../colour.css');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 35px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 10000;
+  left: 0;
+  background-image: url('../../../assets/images/others/mainPageBGR.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  perspective: 2px;
+}
+.github svg {
+  height: 28px;
+  width: 31px;
+  cursor: pointer;
+}
+.github * {
+  stroke: var(--white);
+}
+.github:hover * {
+  stroke: var(--red);
+}
+/* menu */
+.menu {
+  font-family: 'Oswald', sans-serif;
+}
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.menu ul li {
+  margin-right: 90px;
+}
+.menu ul li:last-child {
+  margin-right: 0px;
+}
+.menu ul li a {
+  font-size: 30px;
+  color: var(--white);
+  opacity: 0.6;
+}
+.menu ul li a:hover {
+  opacity: 1;
+  color: var(--white);
+}
