@@ -7,6 +7,7 @@
   align-items: center;
   flex-wrap: nowrap;
   padding: 35px;
+  padding-bottom: 0;
   position: sticky;
   top: 0;
   right: 0;
@@ -18,6 +19,7 @@
   background-size: cover;
   perspective: 2px;
 }
+
 .github svg {
   height: 28px;
   width: 31px;
@@ -35,13 +37,10 @@
 }
 .menu ul {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.menu ul li {
-  margin-right: 90px;
-}
+
 .menu ul li:last-child {
   margin-right: 0px;
 }
@@ -53,4 +52,80 @@
 .menu ul li a:hover {
   opacity: 1;
   color: var(--white);
+}
+.navBtn {
+  background: transparent;
+  display: none;
+}
+/* responsive */
+@media (max-width: 960px) {
+  .navBtn {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--dakrBlack);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 1s ease-out, opacity 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  ul.navLinks {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+  }
+  .navLinks li {
+    margin-right: 0;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .menuOpen {
+    padding: 0;
+  }
+  .logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 17px;
+  }
+  .github {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 35px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  nav button div {
+    transition: transform 0.3s ease-out;
+  }
+  .menuOpen nav button div {
+    transform: rotateZ(145deg);
+    transition: transform 1s ease-out;
+  }
+}
+@media (min-width: 961px) {
+  ul {
+    flex-direction: row;
+  }
+
+  .menu ul li {
+    margin-right: 90px;
+  }
+  .container {
+    padding: 35px;
+  }
 }

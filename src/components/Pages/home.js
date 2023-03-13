@@ -3,37 +3,13 @@ import classes from './home.module.css';
 import Outlaws from '../assets/images/others/Outlaws';
 import ForLife from '../assets/images/others/ForLife';
 import PS4 from '../assets/images/logo/PS4';
-import PC from '../assets/images/logo/PC';
 import XBOXONE from '../assets/images/logo/XBOXONE';
 import { useState, useRef, useEffect } from 'react';
 const Home = () => {
-  const myRef = useRef();
-  const [clas, setClasses] = useState('');
-  const [y, setY] = useState(null);
-  const [yOffset, setYOffset] = useState(null);
-  const [elementY, setElementY] = useState(null);
-  const getY = () => {
-    setY(myRef.current.offsetTop);
-    setYOffset(window.pageYOffset);
-    setElementY(document.getElementById('about').getBoundingClientRect().top);
-  };
-  useEffect(() => {
-    getY();
-  }, []);
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setY(myRef.current.offsetTop);
-      setYOffset(window.pageYOffset);
-      setElementY(document.getElementById('about').getBoundingClientRect().top);
-      const heigth = window.innerHeight;
-      if (elementY < heigth - elementY) setClasses('active');
-      if (elementY > heigth - elementY) setClasses('');
-    });
+  // const myRef = useRef();
 
-    return window.removeEventListener('scroll', getY);
-  }, [yOffset]);
   return (
-    <div className={`${classes.wrapper} ${classes[clas]}`}>
+    <div className={`${classes.wrapper} `}>
       <Header />
       {/* <main> */}
       <section className={classes.main}>
@@ -56,16 +32,14 @@ const Home = () => {
       </section>
 
       <section
-        ref={myRef}
-        onScroll={getY}
+        // ref={myRef}
+
         id="about"
         className={`${classes.About} `}
       >
         <div className={`${classes.contentContainer} `}>
           {/* ${classes.more} ${classes[clas]} */}
-          <div
-            className={`${classes.Releases} ${classes.more} ${classes[clas]}`}
-          >
+          <div className={`${classes.Releases} ${classes.more}`}>
             <div className={classes.gameRelease}>GAME RELEASES</div>
             <div className={classes.GameRealeseItem}>
               <div className={classes.ReleaseInfo}>
@@ -75,12 +49,12 @@ const Home = () => {
                   <XBOXONE />
                 </div>
               </div>
-              <div className={classes.ReleaseInfo}>
+              {/* <div className={classes.ReleaseInfo}>
                 <div className={classes.data}>November 5, 2019</div>
                 <div className={classes.logo}>
                   <PC />
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className={classes.developers}>
               <div>
@@ -93,9 +67,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div
-            className={`${classes.gameDesc} ${classes.more} ${classes[clas]}`}
-          >
+          <div className={`${classes.gameDesc} ${classes.more}`}>
             <p>
               <strong>America, 1899.</strong> The end of the wild west era has
               begun as lawmen hunt down the last remaining outlaw gangs. Those
