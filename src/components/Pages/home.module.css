@@ -1,23 +1,20 @@
 @import url('../colour.css');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Oxanium:wght@400;500;600;700;800&display=swap');
-.wrapper {
-  font-family: 'Oswald', sans-serif;
+html,
+body {
+  height: 100%;
+}
+body {
   background-image: url('../assets/images/others/mainPageBGR.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 100vh;
-  position: relative;
-  height: 100%;
-  perspective: 2px;
 }
-main {
+.wrapper {
+  font-family: 'Oswald', sans-serif;
   height: 100%;
-  width: 100%;
-  position: fixed;
 }
 .contentContainer {
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -25,26 +22,29 @@ main {
   z-index: 2;
 }
 .main {
-  position: relative;
-  height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .mainQuote {
-  margin-top: 350px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40%;
 }
 .mainQuote div:first-child {
   margin-right: 40px;
 }
 .title {
-  margin-top: 120px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20%;
   font-size: 40px;
   color: var(--white);
 }
@@ -55,20 +55,24 @@ main {
   font-weight: medium;
   margin-top: 50px;
   margin-bottom: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-
-/* About the game */
+section {
+  height: 100vh;
+  position: relative;
+  top: -90px;
+}
 .About {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  height: 100vh;
-  position: relative;
 }
 .About .contentContainer {
   display: flex;
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -81,7 +85,6 @@ main {
 .Releases {
   display: flex;
   flex-direction: column;
-  /* width: 30%; */
 }
 .gameRelease {
   text-align: left;
@@ -138,11 +141,20 @@ main {
   width: 60%;
   text-align: left;
   max-width: 900px;
+  line-height: 1.4;
+  letter-spacing: 1.5px;
+  margin-top: 40px;
 }
 .gameDesc p:nth-child(2n) {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+.mainQuote svg,
+.outlaws svg {
+  width: 100%;
+}
+
 /* some animation */
 
 .wrapper {
@@ -152,7 +164,7 @@ main {
 .wrapper.active {
   filter: grayscale(1);
 }
-.more {
+/* .more {
   transform: translateY(150px);
   opacity: 0;
   transition: all 1s ease;
@@ -160,4 +172,137 @@ main {
 .more.active {
   transform: translateY(0px);
   opacity: 1;
+} */
+@media (max-width: 360px) {
+  .gameDesc {
+    width: 90%;
+  }
+}
+@media (max-width: 520px) {
+  .mainQuote {
+    display: flex;
+    flex-direction: column;
+  }
+  .outlaws {
+    margin-bottom: 30px;
+  }
+  .developers {
+    margin-top: 0;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .disclaimer {
+    font-size: 16px;
+  }
+  .gameDesc p {
+    font-size: 20px;
+  }
+  .gameDesc {
+    width: 90%;
+  }
+  .ReleaseInfo {
+    display: flex;
+    flex-direction: column;
+    /* align-items:center; */
+  }
+  .ReleaseInfo div:last-child {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 610px) {
+  .gameRelease {
+    font-size: 30px;
+  }
+  .data {
+    font-size: 24px;
+  }
+  .logo svg {
+    height: 20px;
+  }
+  .developerItem,
+  .developerName {
+    font-size: 24px;
+  }
+  .developers div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .developers div:first-child {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 620px) {
+  .outlaws svg {
+    height: 64px;
+  }
+  .forLife svg {
+    height: 46px;
+  }
+}
+@media (max-width: 680px) {
+  .outlaws {
+    margin-right: 0 !important;
+  }
+  .outlaws svg {
+    height: 64px;
+  }
+  .forLife svg {
+    height: 46px;
+  }
+  .gameDesc {
+    width: 90%;
+  }
+}
+@media (max-width: 730px) {
+  .mainQuote {
+    display: flex;
+    flex-direction: column;
+  }
+  .outlaws {
+    margin-bottom: 30px;
+  }
+  .gameDesc {
+    width: 90%;
+  }
+}
+@media (max-width: 1020px) {
+  .mainQuote {
+    display: flex;
+    flex-direction: column;
+  }
+  .outlaws {
+    margin-bottom: 30px;
+  }
+  .gameDesc {
+    width: 90%;
+  }
+}
+@media (max-width: 1280px) {
+  .mainQuote {
+    display: flex;
+    flex-direction: column;
+  }
+  .outlaws {
+    margin-bottom: 30px;
+  }
+  .About .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .gameDesc {
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 1281px) {
+  .contentContainer {
+    display: flex;
+
+    z-index: 2;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline !important;
+  }
 }
